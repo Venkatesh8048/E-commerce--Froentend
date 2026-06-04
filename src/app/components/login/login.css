@@ -1,0 +1,27 @@
+.login-container {
+  min-height: 100vh;
+  width: 100%;
+  /* Replace URL with your preferred background */
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+              url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+  backdrop-filter: blur(10px); /* Modern frosted glass effect */
+}
+
+.input-group-text {
+  color: #6c757d;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #2563eb;
+}

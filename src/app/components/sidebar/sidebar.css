@@ -1,0 +1,159 @@
+/* Sidebar */
+.sidebar-wrapper{
+    width:280px;
+    min-width:280px;
+    height:100vh;
+    background:#0f172a;
+    padding:20px;
+    position:sticky;
+    top:0;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid #1e293b;
+}
+
+/* Logo */
+.navbar-brand{
+    color:white !important;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:30px;
+}
+
+.navbar-brand span{
+    color:#3b82f6;
+}
+
+/* Nav */
+.custom-nav{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+/* Nav Links */
+.custom-nav .nav-link{
+    color:#cbd5e1 !important;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 18px;
+    border-radius:14px;
+    transition:0.3s;
+    font-weight:500;
+    font-size:16px;
+}
+
+/* Icons */
+.nav-icon{
+    font-size:20px;
+    color:#94a3b8;
+}
+
+/* Hover */
+.custom-nav .nav-link:hover{
+    background:#1e293b;
+    color:white !important;
+    cursor: pointer;
+}
+
+.custom-nav .nav-link:hover .nav-icon{
+    color:#3b82f6;
+}
+
+/* Active */
+.custom-nav .nav-link.active{
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+    color:white !important;
+}
+
+.custom-nav .nav-link.active .nav-icon{
+    color:white;
+}
+
+/* Footer */
+.sidebar-footer{
+    margin-top:auto;
+    background:#1e293b;
+    padding:15px;
+    border-radius:16px;
+}
+
+/* Avatar */
+.avatar-sm{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+/* User Text */
+.user-meta h6{
+    color:white;
+    margin:0;
+}
+
+.user-meta small{
+    color:#94a3b8;
+}
+
+.menu-toggle-btn{
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  color: black;
+}
+
+.close-btn{
+  border: none;
+  background: transparent;
+  font-size: 22px;
+}
+
+@media(max-width: 991px){
+
+  .sidebar-wrapper{
+    position: fixed;
+    left: -100%;
+    top: 0;
+    box-shadow: 0 0 25px rgba(0,0,0,0.12);
+  }
+
+  .sidebar-wrapper.mobile-open{
+    left: 0;
+  }
+
+  .mobile-topbar{
+  height: 65px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #ffffff;
+  border-bottom: 1px solid #ececec;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.sidebar-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.sidebar-overlay.show{
+  opacity: 1;
+  visibility: visible;
+}
+
+}

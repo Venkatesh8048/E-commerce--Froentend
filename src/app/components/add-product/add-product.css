@@ -1,0 +1,90 @@
+body{
+    background:#f5f7fb;
+}
+
+/* Form Card */
+.product-form-card{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 5px 25px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.form-header{
+    margin-bottom:30px;
+}
+
+/* Labels */
+.custom-label{
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+/* Inputs */
+.custom-input{
+    min-height:50px;
+    border-radius:12px;
+    border:1px solid #dbe0e6;
+    box-shadow:none;
+}
+
+.custom-input:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 0 0.15rem rgba(13,110,253,0.15);
+}
+
+/* Input Icon */
+.input-group-text{
+    border-radius:12px 0 0 12px;
+    background:#f8f9fa;
+}
+
+/* Upload Box */
+.upload-box{
+    border:2px dashed #d1d5db;
+    border-radius:15px;
+    padding:20px;
+    background:#fafafa;
+}
+
+/* Buttons */
+.cancel-btn{
+    background:#e5e7eb;
+    border:none;
+    padding:10px 22px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.cancel-btn:hover{
+    background:#d1d5db;
+}
+
+.save-btn{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:10px 24px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.save-btn:hover{
+    background:#0b5ed7;
+    color:white;
+}
+
+/* Invalid */
+.is-invalid{
+    border-color:#dc3545 !important;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .product-form-card{
+        padding:20px;
+    }
+
+}

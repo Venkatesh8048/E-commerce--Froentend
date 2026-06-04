@@ -1,0 +1,71 @@
+/* Custom Styles */
+
+:root {
+    --bs-primary: #2563eb; /* A cleaner blue */
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1a1a1a;
+}
+
+/* Hero Customization */
+.hero-section {
+    min-height: 85vh;
+    background-color: #ffffff;
+    padding: 60px 0;
+}
+
+.hero-section h1 {
+    line-height: 1.1;
+}
+
+/* Product Card Hover Effects */
+.product-card {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.product-card img {
+    transition: transform 0.5s ease;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+.product-card:hover .card-title {
+    color: var(--bs-primary);
+}
+
+/* Navigation tweaks */
+.navbar-brand {
+    letter-spacing: -1px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--bs-primary) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--bs-primary);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,230 @@
+.card {
+    overflow: hidden;
+}
+
+.search-box {
+    width: 260px;
+}
+
+.search-input {
+    padding-left: 40px;
+    border-radius: 12px;
+    height: 45px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    color: gray;
+}
+
+.table th {
+    font-weight: 600;
+    padding: 16px;
+    background: #0d6efd;
+}
+
+.table td {
+    padding: 16px;
+    vertical-align: middle;
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.pagination .page-link {
+    border-radius: 10px;
+    margin: 0 4px;
+    border: none;
+    color: #333;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Overlay */
+.custom-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+/* Modal Box */
+.custom-modal-dialog {
+    position: relative;
+    width: 90%;
+    max-width: 850px;
+    animation: modalAnimation 0.3s ease;
+}
+
+/* Animation */
+@keyframes modalAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Header */
+.custom-header {
+    background: linear-gradient(135deg, #0d6efd, #3d8bfd);
+    padding: 22px 28px;
+    color: white;
+    border: none;
+}
+
+/* Inputs */
+.custom-input {
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid #dfe3ea;
+    padding: 10px 16px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.custom-input:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.12);
+}
+
+/* Labels */
+.form-label {
+    margin-bottom: 8px;
+    color: #343a40;
+}
+
+/* Footer Buttons */
+.cancel-btn {
+    height: 45px;
+    border-radius: 12px;
+    padding: 0 22px;
+    font-weight: 600;
+}
+
+.save-btn {
+    height: 45px;
+    border-radius: 12px;
+    padding: 0 24px;
+    font-weight: 600;
+    border: none;
+    color: white;
+    background: linear-gradient(135deg, #0d6efd, #3d8bfd);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.25);
+    transition: 0.3s;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Validation */
+.text-danger {
+    font-size: 13px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .custom-modal-dialog {
+        width: 95%;
+    }
+
+}
+
+/* Modal Wrapper */
+.custom-view-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Overlay */
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+}
+
+/* Dialog */
+.view-modal-dialog {
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+    animation: fadeIn 0.25s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Detail Row */
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item i {
+    font-size: 18px;
+    width: 30px;
+}
+
+.detail-item label {
+    font-size: 12px;
+    color: #6c757d;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.detail-item p {
+    margin: 0;
+    font-weight: 600;
+    color: #212529;
+}

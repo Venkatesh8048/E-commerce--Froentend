@@ -1,0 +1,107 @@
+<div class="mobile-topbar d-lg-none">
+  <button class="menu-toggle-btn" (click)="toggleSidebar()">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <h5 class="m-0 fw-bold">
+    VIBE<span class="text-primary">STORE</span>
+  </h5>
+</div>
+
+<!-- OVERLAY -->
+<div
+  class="sidebar-overlay"
+  [class.show]="isSidebarOpen"
+  (click)="toggleSidebar()">
+</div>
+
+<div class="sidebar-wrapper d-flex flex-column"  [class.mobile-open]="isSidebarOpen">
+
+  <!-- Logo -->
+  <div class="logo-section">
+    <a class="navbar-brand fw-bold fs-3" href="#">VIBE<span class="text-primary">STORE</span></a>
+
+  </div>
+
+
+  <!-- Navigation -->
+  <ul class="nav flex-column custom-nav">
+
+    <li>
+      <a routerLink="/layout/dashboard" routerLinkActive="active" class="nav-link">
+        <div class="icon-box">
+          <i class="bi bi-grid-1x2-fill nav-icon"></i>
+        </div>
+        <span>Dashboard</span>
+      </a>
+    </li>
+
+    <li *ngIf="isUser()">
+      <a routerLink="/layout/cart" routerLinkActive="active" class="nav-link">
+        <div class="icon-box">
+          <i class="bi bi-cart-check-fill nav-icon"></i>
+        </div>
+        <span>Cart</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/layout/order" routerLinkActive="active" class="nav-link">
+        <div class="icon-box">
+
+          <i class="bi bi-bag-fill nav-icon"></i>
+        </div>
+        <span>Orders</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/layout/product" routerLinkActive="active" class="nav-link">
+        <div class="icon-box">
+          <i class="bi bi-box-seam-fill nav-icon"></i>
+        </div>
+        <span>Products</span>
+      </a>
+    </li>
+
+    <li *ngIf="isAdmin()">
+      <a routerLink="/layout/user" routerLinkActive="active" class="nav-link">
+        <div class="icon-box">
+          <i class="bi bi-people-fill nav-icon"></i>
+        </div>
+        <span>Customers</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/layout/profile" routerLinkActive="active" class="nav-link">
+        <div class="icon-box">
+          <i class="bi bi-person-circle nav-icon"></i>
+        </div>
+        <span>Profile</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/settings" routerLinkActive="active" class="nav-link">
+        <div class="icon-box">
+          <i class="bi bi-gear-fill nav-icon"></i>
+        </div>
+        <span>Settings</span>
+      </a>
+    </li>
+
+  </ul>
+
+  <!-- Bottom User -->
+  <div class="sidebar-footer mt-auto">
+    <div>
+      <div class="user-meta">
+        <h6>{{username}}</h6>
+       
+      </div>
+    </div>
+
+  </div>
+
+</div>

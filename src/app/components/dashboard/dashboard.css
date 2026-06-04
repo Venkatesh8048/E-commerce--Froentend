@@ -1,0 +1,45 @@
+ body {
+   background: #f5f7fb;
+ }
+
+ .card-box {
+   border: none;
+   border-radius: 15px;
+   color: white;
+   padding: 20px;
+ }
+
+ .bg1 {
+   background: linear-gradient(45deg, #4facfe, #00f2fe);
+ }
+
+ .bg2 {
+   background: linear-gradient(45deg, #43e97b, #38f9d7);
+ }
+
+ .bg3 {
+   background: linear-gradient(45deg, #fa709a, #fee140);
+ }
+
+ .bg4 {
+   background: linear-gradient(45deg, #667eea, #764ba2);
+ }
+
+ .section-card {
+   border: none;
+   border-radius: 15px;
+   padding: 20px;
+ }
+
+ .chart-box {
+   height: 320px;
+   position: relative;
+   padding: 10px;
+ }
+
+ .section-card {
+   background: #fff;
+   border-radius: 16px;
+   padding: 20px;
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+ }

@@ -1,0 +1,363 @@
+<div class="container py-5" *ngIf="selectedUser">
+
+    <div class="row justify-content-center">
+
+        <div class="col-xl-8 col-lg-10">
+
+            <div class="profile-card">
+
+                <!-- TOP COVER -->
+                <div class="profile-cover"></div>
+
+                <!-- PROFILE CONTENT -->
+                <div class="profile-content">
+
+                    <!-- PROFILE IMAGE -->
+                    <div class="profile-avatar-wrapper">
+
+                        <div class="profile-avatar">
+
+                            <i class="bi bi-person-fill"></i>
+
+                        </div>
+
+                    </div>
+
+                    <!-- USER INFO -->
+                    <div class="text-center mb-4">
+
+                        <h2 class="profile-name mb-1">
+                            {{ selectedUser.username }}
+                        </h2>
+
+                        <p class="profile-role mb-0">
+                            {{ selectedUser.role }}
+                        </p>
+
+                    </div>
+
+                    <!-- INFO GRID -->
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+
+                            <div class="info-card">
+
+                                <div class="info-icon blue-bg">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </div>
+
+                                <div>
+                                    <span class="info-label">
+                                        Email
+                                    </span>
+
+                                    <h6 class="info-value mb-0">
+                                        {{ selectedUser.email }}
+                                    </h6>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="info-card">
+
+                                <div class="info-icon green-bg">
+                                    <i class="bi bi-telephone-fill"></i>
+                                </div>
+
+                                <div>
+                                    <span class="info-label">
+                                        Phone
+                                    </span>
+
+                                    <h6 class="info-value mb-0">
+                                        {{ selectedUser.phone }}
+                                    </h6>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <div class="info-card">
+
+                                <div class="info-icon orange-bg">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+
+                                <div>
+                                    <span class="info-label">
+                                        Address
+                                    </span>
+
+                                    <h6 class="info-value mb-0">
+                                        {{ selectedUser.address }}
+                                    </h6>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="d-flex justify-content-center gap-3 mt-5 flex-wrap">
+
+                        <button class="btn profile-btn edit-btn" (click)="editUser(selectedUser)">
+
+                            <i class="bi bi-pencil-square me-2"></i>
+                            Edit Profile
+
+                        </button>
+
+                        <button class="btn profile-btn logout-btn" (click)="logout()">
+
+                            <i class="bi bi-box-arrow-right me-2"></i>
+                            Logout
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="custom-modal" *ngIf="isModalOpen">
+
+    <!-- Overlay -->
+    <div class="modal-overlay" (click)="closeModal()"></div>
+
+    <!-- Modal Box -->
+    <div class="custom-modal-dialog">
+
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+            <!-- Header -->
+            <div class="modal-header custom-header">
+
+                <div>
+                    <h4 class="modal-title fw-bold mb-1">
+                        Edit Profile
+                    </h4>
+
+
+                </div>
+
+                <button type="button" class="btn-close btn-close-white" (click)="closeModal()">
+                </button>
+
+            </div>
+
+            <!-- FORM -->
+            <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+
+                <div class="modal-body p-4">
+
+                    <!-- Row 1 -->
+                    <div class="row">
+
+                        <!-- Username -->
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                User Name
+                            </label>
+
+                            <input type="text" class="form-control custom-input" formControlName="username"
+                                placeholder="Enter username">
+
+                            <div class="text-danger small mt-1" *ngIf="(userForm.get('username')?.touched || submitted)
+                                && userForm.get('username')?.hasError('required')">
+
+                                Username is required
+
+                            </div>
+
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Email
+                            </label>
+
+                            <input type="email" class="form-control custom-input" formControlName="email"
+                                placeholder="Enter email">
+
+                            <div class="text-danger small mt-1" *ngIf="(userForm.get('email')?.touched || submitted)
+                                && userForm.get('email')?.hasError('required')">
+
+                                Email is required
+
+                            </div>
+
+                            <div class="text-danger small mt-1" *ngIf="userForm.get('email')?.touched
+                                && userForm.get('email')?.hasError('email')">
+
+                                Enter valid email
+
+                            </div>
+
+                            <div class="text-danger" *ngIf="
+ userForm.get('email')?.dirty &&
+ userForm.get('email')?.errors?.['emailTaken']
+ ">
+                                Email already registered
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="row">
+
+                        <!-- Password -->
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Password
+                            </label>
+
+                            <div class="position-relative">
+
+                                <input [type]="showPassword ? 'text' : 'password'"
+                                    class="form-control custom-input pe-5" formControlName="password"
+                                    placeholder="Enter password">
+
+                                <i class="bi position-absolute top-50 end-0 translate-middle-y me-3"
+                                    [class.bi-eye]="!showPassword" [class.bi-eye-slash]="showPassword"
+                                    (click)="togglePassword()" style="cursor:pointer;font-size:18px;">
+                                </i>
+
+                            </div>
+
+                            <div class="text-danger" *ngIf="(userForm.get('password')?.touched || submitted)
+        && userForm.get('password')?.hasError('required')">
+
+                                Password is Required
+
+                            </div>
+
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Phone
+                            </label>
+
+                            <input type="text" class="form-control custom-input" formControlName="phone"
+                                placeholder="Enter phone number">
+
+                            <div class="text-danger"
+                                *ngIf="(userForm.get('phone')?.touched || submitted) && userForm.get('phone')?.hasError('required')">
+                                Phone is Required
+                            </div>
+
+                            <div class="text-danger"
+                                *ngIf="userForm.get('phone')?.touched && userForm.get('phone')?.hasError('minlength')">
+                                Minimum 10 digits
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="row">
+
+                        <!-- Address -->
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Address
+                            </label>
+
+                            <input type="text" class="form-control custom-input" formControlName="address"
+                                placeholder="Enter address">
+
+                            <div class="text-danger"
+                                *ngIf="(userForm.get('address')?.touched || submitted) && userForm.get('address')?.hasError('required')">
+                                Address is Required
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Role
+                            </label>
+
+                            <select class="form-select custom-input" formControlName="role" placeholder="select role">
+
+                                <option value="">
+                                    Select Role
+                                </option>
+
+                                <option *ngFor="let role of roles" [value]="role">
+
+                                    {{role}}
+
+                                </option>
+
+                            </select>
+
+                            <div class="text-danger"
+                                *ngIf="(userForm.get('role')?.touched || submitted) && userForm.get('role')?.hasError('required')">
+                                Please select role
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer border-0 px-4 pb-4">
+
+                    <button type="button" class="btn btn-light cancel-btn" (click)="closeModal()">
+
+                        Cancel
+
+                    </button>
+
+                    <button type="submit" class="btn save-btn">
+
+                        <i class="fa fa-save me-2"></i>
+
+                        Update Profile
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

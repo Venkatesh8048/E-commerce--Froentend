@@ -1,0 +1,65 @@
+<div class="signup-container d-flex align-items-center justify-content-center">
+  <div class="card signup-card shadow-lg border-0 my-5">
+    <div class="card-body p-4 p-md-5">
+      
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-dark">CREATE <span class="text-primary">ACCOUNT</span></h2>
+        <p class="text-muted">Join VibeStore and start shopping today.</p>
+      </div>
+
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold small">Username</label>
+            <input type="text" formControlName="username" class="form-control" 
+                   [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" placeholder="Enter username">
+            <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">Username is required</div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold small">Email</label>
+            <input type="email" formControlName="email" class="form-control" 
+                   [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" placeholder="example@example.com">
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">Enter a valid email</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold small">Password</label>
+            <input type="password" formControlName="password" class="form-control" 
+                   [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" placeholder="••••••••">
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">Password is required</div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold small">Phone Number</label>
+            <input type="tel" formControlName="phone" class="form-control" 
+                   [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }" placeholder="Enter phone no">
+            <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">Phone no is required</div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-bold small">Delivery Address</label>
+          <textarea formControlName="address" class="form-control" rows="2" 
+                    [ngClass]="{ 'is-invalid': submitted && f['address'].errors }" 
+                    placeholder="Street name, City, Postcode"></textarea>
+          <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">Address is required</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm mb-3">
+          Create Account
+        </button>
+
+        <div class="text-center">
+          <p class="small text-muted">Already have an account? 
+            <a routerLink="/login" class="text-primary text-decoration-none fw-bold" style="cursor: pointer;">Login</a>
+          </p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

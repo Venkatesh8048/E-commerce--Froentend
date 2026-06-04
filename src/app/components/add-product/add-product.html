@@ -1,0 +1,221 @@
+<div class="container py-4">
+
+    <div class="product-form-card">
+
+        <!-- Header -->
+        <div class="form-header">
+
+            <div>
+                <h3 class="fw-bold mb-1">
+                    {{ isEditMode ? 'Edit Product' : 'Add Product' }}
+                </h3>
+
+                <p class="text-muted mb-0">
+                    Fill product information
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Form -->
+        <form
+            [formGroup]="productForm"
+            (ngSubmit)="onSubmitForm()"
+        >
+
+            <div class="row">
+
+                <!-- Product Name -->
+                <div class="col-md-6 mb-4">
+
+                    <label class="form-label custom-label">
+                        Product Name
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="fa fa-box"></i>
+                        </span>
+
+                        <input
+                            type="text"
+                            class="form-control custom-input"
+                            formControlName="name"
+                            placeholder="Enter product name"
+                            [class.is-invalid]="(productForm.get('name')?.touched || submitted) && productForm.get('name')?.invalid"
+                        >
+
+                    </div>
+
+                    <div
+                        class="invalid-feedback d-block"
+                        *ngIf="(productForm.get('name')?.touched || submitted) && productForm.get('name')?.hasError('required')"
+                    >
+                        Product Name is Required
+                    </div>
+
+                </div>
+
+                <!-- Price -->
+                <div class="col-md-6 mb-4">
+
+                    <label class="form-label custom-label">
+                        Price
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            ₹
+                        </span>
+
+                        <input
+                            type="number"
+                            class="form-control custom-input"
+                            formControlName="price"
+                            placeholder="Enter product price"
+                            [class.is-invalid]="(productForm.get('price')?.touched || submitted) && productForm.get('price')?.invalid"
+                        >
+
+                    </div>
+
+                    <div
+                        class="invalid-feedback d-block"
+                        *ngIf="(productForm.get('price')?.touched || submitted) && productForm.get('price')?.hasError('required')"
+                    >
+                        Price is Required
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Row 2 -->
+            <div class="row">
+
+                <!-- Description -->
+                <div class="col-md-6 mb-4">
+
+                    <label class="form-label custom-label">
+                        Description
+                    </label>
+
+                    <textarea
+                        rows="4"
+                        class="form-control custom-input"
+                        formControlName="description"
+                        placeholder="Enter description"
+                        [class.is-invalid]="(productForm.get('description')?.touched || submitted) && productForm.get('description')?.invalid"
+                    ></textarea>
+
+                    <div
+                        class="invalid-feedback d-block"
+                        *ngIf="(productForm.get('description')?.touched || submitted) && productForm.get('description')?.hasError('required')"
+                    >
+                        Description is Required
+                    </div>
+
+                </div>
+
+                <!-- Category -->
+                <div class="col-md-6 mb-4">
+
+                    <label class="form-label custom-label">
+                        Category
+                    </label>
+
+                    <select
+                        class="form-select custom-input"
+                        formControlName="category"
+                        [class.is-invalid]="(productForm.get('category')?.touched || submitted) && productForm.get('category')?.invalid"
+                    >
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option
+                            *ngFor="let c of category"
+                            [value]="c"
+                        >
+                            {{c}}
+                        </option>
+
+                    </select>
+
+                    <div
+                        class="invalid-feedback d-block"
+                        *ngIf="(productForm.get('category')?.touched || submitted) && productForm.get('category')?.hasError('required')"
+                    >
+                        Please select category
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Upload -->
+            <div class="mb-4">
+
+                <label class="form-label custom-label">
+                    Upload Product Image
+                </label>
+
+                <div class="upload-box">
+
+                    <input
+                        type="file"
+                        class="form-control custom-input"
+                        (change)="onFileChange($event)"
+                        [class.is-invalid]="fileError && submitted"
+                    >
+
+                    <div
+                        class="invalid-feedback d-block"
+                        *ngIf="fileError && submitted"
+                    >
+                        Image is required
+                    </div>
+
+                    <small
+                        class="text-success mt-2 d-block"
+                        *ngIf="selectedFile"
+                    >
+                        <i class="fa fa-image me-2"></i>
+                        {{ selectedFile.name }}
+                    </small>
+
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-end gap-3">
+
+                <button
+                    type="button"
+                    class="btn cancel-btn"
+                    routerLink="/layout/product" routerLinkActive="active"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn save-btn"
+                >
+
+                    <i class="fa fa-floppy-disk me-2"></i>
+
+                    {{ isEditMode ? 'Update Product' : 'Save Product' }}
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
