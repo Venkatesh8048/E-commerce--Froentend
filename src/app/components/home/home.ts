@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -11,24 +12,65 @@ import { RouterModule } from '@angular/router';
 })
 export class Home {
 
-  advertisements = [
-    {
-      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80',
-      title: 'Premium Watches',
-      subtitle: 'Up to 20% off today',
-      alt: 'Watch Ad'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
-      title: 'Sonic Audio',
-      subtitle: 'Experience true sound',
-      alt: 'Headphones Ad'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=800&q=80',
-      title: 'New Season Sneakers',
-      subtitle: 'Explore the collection',
-      alt: 'Sneakers Ad'
-    }
-  ];
+  private heroCarousel?: any;
+
+ advertisements = [
+  {
+    image: '/accesories.png',
+    alt: 'Premium accessories',
+    title: 'Discover Your Style',
+    subtitle: 'Explore our latest collection.'
+  },
+  {
+    image: '/electronics.png',
+     alt: 'Latest elecrtonics collection',
+    title: 'Upgrade Your Lifestyle',
+    subtitle: 'Find something special for every day.'
+  },
+  {
+    image: '/fashion.png',
+    alt: 'Latest fashion collection',
+    title: 'Style Meets Comfort',
+    subtitle: 'Shop the trends you love.'
+  }
+];
+
+//  ngAfterViewInit(): void {
+//     const carouselElement = document.getElementById('heroCarousel');
+
+//     if (carouselElement) {
+//       this.heroCarousel = new Carousel(carouselElement, {
+//         interval: 3500,
+//         ride: 'carousel',
+//         pause: false,
+//         wrap: true,
+//         touch: true
+//       });
+
+//       this.heroCarousel.cycle();
+//     }
+//   }
+
+//   ngOnDestroy(): void {
+//     this.heroCarousel?.dispose();
+//   }
+
+  products = [
+  {
+    id: 1,
+    name: 'Wireless Headphones',
+    category: 'Electronics',
+    price: 199,
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e'
+  },
+  {
+    id: 2,
+    name: 'Vintage Camera',
+    category: 'Photography',
+    price: 450,
+    rating: 4.6,
+    image: 'https://images.unsplash.com/photo-1526170315876-ef1596573ef0'
+  }
+];
 }

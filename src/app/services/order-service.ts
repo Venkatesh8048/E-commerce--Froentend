@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { OrderModel } from '../models/orderModel';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +24,7 @@ export class OrderService {
     return this.http.post(
       `${this.url}/placedOrder/${cartId}`,
       {}, // request body (empty if not needed)
-     
+
     );
   }
 
@@ -46,5 +47,9 @@ export class OrderService {
       { withCredentials: true }
     );
 
+  }
+
+  getOrdersByUserId(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}/orders/user/${userId}`);
   }
 }

@@ -21,10 +21,10 @@ export class CartService {
     );
   }
 
-  getCartByUserId() {
-    return this.http.get<any[]>(`${this.url}/getCart`, {
+  getCartByUserId(userId: number) {
+    return this.http.get<any[]>(`${this.url}/cart/${userId}`, {
       withCredentials: true
-    })
+    });
   }
 
   removeProductQuantity(cartId: number) {

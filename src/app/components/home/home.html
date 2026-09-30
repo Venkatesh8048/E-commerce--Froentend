@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -178,4 +178,783 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+</html> -->
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg store-navbar sticky-top">
+  <div class="container">
+
+    <a class="navbar-brand store-logo" routerLink="/">
+      VIBE<span>STORE</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+      <i class="bi bi-list"></i>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#categories">
+            Categories
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#shop">
+            Shop
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="#about">
+            About
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="nav-actions">
+
+        <button class="icon-btn">
+          <i class="bi bi-search"></i>
+        </button>
+
+        <button class="icon-btn">
+          <i class="bi bi-heart"></i>
+        </button>
+
+        <button class="icon-btn cart-btn">
+          <i class="bi bi-bag"></i>
+          <span class="cart-count">2</span>
+        </button>
+
+        <a routerLink="/login" class="login-btn">
+
+          <i class="bi bi-person-circle"></i>
+          Login
+
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero-section">
+
+  <div class="container">
+
+    <div class="row align-items-center">
+
+      <!-- LEFT -->
+
+      <div class="col-lg-6">
+
+        <div class="hero-content">
+
+          <span class="hero-badge">
+            ✦ NEW SEASON 2026
+          </span>
+
+          <h1>
+            Elevate Your
+            <span>Everyday Style.</span>
+          </h1>
+
+          <p>
+            Discover premium essentials curated for the modern
+            lifestyle. From technology to fashion, find products
+            that match your vibe.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a href="#shop" class="primary-btn">
+              Shop Collection
+              <i class="bi bi-arrow-right"></i>
+            </a>
+
+            <a href="#categories" class="secondary-btn">
+              Explore Categories
+            </a>
+
+          </div>
+
+          <div class="hero-stats">
+
+            <div>
+              <strong>10K+</strong>
+              <span>Products</span>
+            </div>
+
+            <div>
+              <strong>25K+</strong>
+              <span>Customers</span>
+            </div>
+
+            <div>
+              <strong>4.9/5</strong>
+              <span>Rating</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT -->
+
+      <div class="col-lg-6">
+
+        <div class="hero-image-wrapper">
+
+          <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500"
+            data-bs-pause="false">
+
+            <div class="carousel-inner hero-carousel">
+
+              <div *ngFor="let ad of advertisements; let i = index" class="carousel-item" [class.active]="i === 0"
+                data-bs-interval="3500">
+
+                <img [src]="ad.image" [alt]="ad.alt" class="hero-image">
+
+                <div class="hero-overlay"></div>
+
+                <div class="hero-caption">
+
+                  <span>FEATURED</span>
+
+                  <h3>
+                    {{ ad.title }}
+                  </h3>
+
+                  <p>
+                    {{ ad.subtitle }}
+                  </p>
+
+                  <a href="#shop">
+                    Explore Now
+                    <i class="bi bi-arrow-up-right"></i>
+                  </a>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+
+              <span class="carousel-control-prev-icon"></span>
+
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+
+              <span class="carousel-control-next-icon"></span>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= BENEFITS ================= -->
+
+<section class="benefits-section">
+
+  <div class="container">
+
+    <div class="row g-0">
+
+      <div class="col-md-4 benefit-item">
+
+        <div class="benefit-icon">
+          <i class="bi bi-truck"></i>
+        </div>
+
+        <div>
+          <h4>Free Shipping</h4>
+          <p>On orders over $100</p>
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4 benefit-item">
+
+        <div class="benefit-icon">
+          <i class="bi bi-shield-check"></i>
+        </div>
+
+        <div>
+          <h4>Secure Payment</h4>
+          <p>100% secure checkout</p>
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4 benefit-item">
+
+        <div class="benefit-icon">
+          <i class="bi bi-arrow-repeat"></i>
+        </div>
+
+        <div>
+          <h4>Easy Returns</h4>
+          <p>30 day return policy</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section id="categories" class="categories-section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div>
+        <span class="section-label">
+          EXPLORE
+        </span>
+
+        <h2>
+          Shop By Category
+        </h2>
+
+        <p>
+          Find something that matches your vibe.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="category-grid">
+
+      <a class="category-card category-electronics">
+
+        <div class="category-content">
+          <i class="bi bi-headphones"></i>
+
+          <h4>Electronics</h4>
+
+          
+        </div>
+
+      </a>
+
+
+      <a class="category-card category-fashion">
+
+        <div class="category-content">
+
+          <i class="bi bi-bag"></i>
+
+          <h4>Fashion</h4>
+
+        
+
+        </div>
+
+      </a>
+
+
+      <a class="category-card category-home">
+
+        <div class="category-content">
+
+          <i class="bi bi-house"></i>
+
+          <h4>Home Decor</h4>
+
+       
+        </div>
+
+      </a>
+
+
+      <a class="category-card category-footwear">
+
+        <div class="category-content">
+
+          <i class="bi bi-stars"></i>
+
+          <h4>Footwear</h4>
+
+          
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section id="shop" class="products-section">
+
+  <div class="container">
+
+    <div class="section-heading product-heading">
+
+      <div>
+
+        <span class="section-label">
+          OUR COLLECTION
+        </span>
+
+        <h2>
+          Trending Products
+        </h2>
+
+        <p>
+          Handpicked products loved by our customers.
+        </p>
+
+      </div>
+
+      <a routerLink="/login" class="view-all">
+        View All
+        <i class="bi bi-arrow-right"></i>
+      </a>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <!-- PRODUCT 1 -->
+
+      <div class="col-6 col-md-6 col-lg-3">
+
+        <div class="product-card">
+
+          <div class="product-image">
+
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=85"
+              alt="Wireless Headphones">
+
+            <span class="product-badge">
+              TRENDING
+            </span>
+
+       
+
+         
+
+          </div>
+
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Electronics
+            </span>
+
+            <h5>
+              Wireless Headphones
+            </h5>
+
+            <div class="product-rating">
+
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+
+              <span>
+                4.8
+              </span>
+
+            </div>
+
+            <div class="product-price">
+             ₹1000
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 2 -->
+
+      <div class="col-6 col-md-6 col-lg-3">
+
+        <div class="product-card">
+
+          <div class="product-image">
+
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=700&q=85"
+              alt="Vintage Camera">
+
+           
+          
+
+          </div>
+
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Photography
+            </span>
+
+            <h5>
+              Vintage Camera
+            </h5>
+
+            <div class="product-rating">
+
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+
+              <span>
+                4.6
+              </span>
+
+            </div>
+
+            <div class="product-price">
+             ₹19,096
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 3 -->
+
+      <div class="col-6 col-md-6 col-lg-3">
+
+        <div class="product-card">
+
+          <div class="product-image">
+
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
+              alt="Crimson Sneakers">
+
+            <span class="sale-badge">
+              -25%
+            </span>
+
+        
+
+          </div>
+
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Footwear
+            </span>
+
+            <h5>
+              Crimson Sneakers
+            </h5>
+
+            <div class="product-rating">
+
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+
+              <span>
+                4.9
+              </span>
+
+            </div>
+
+            <div class="product-price">
+
+              ₹3000
+
+              <del>
+                ₹5000
+              </del>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 4 -->
+
+      <div class="col-6 col-md-6 col-lg-3">
+
+        <div class="product-card">
+
+          <div class="product-image">
+
+            <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=85"
+              alt="Minimalist Desk Lamp">
+
+
+         
+
+          </div>
+
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Home Decor
+            </span>
+
+            <h5>
+              Minimalist Desk Lamp
+            </h5>
+
+            <div class="product-rating">
+
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+
+              <span>
+                4.7
+              </span>
+
+            </div>
+
+            <div class="product-price">
+             ₹500
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter-section">
+
+  <div class="container">
+
+    <div class="newsletter-box">
+
+      <div>
+
+        <span>
+          JOIN THE VIBE
+        </span>
+
+        <h2>
+          Get 15% off your first order.
+        </h2>
+
+        <p>
+          Subscribe to our newsletter for exclusive offers,
+          new arrivals and style inspiration.
+        </p>
+
+      </div>
+
+      <div class="newsletter-form">
+
+        <input type="email" placeholder="Enter your email">
+
+        <button>
+          Subscribe
+          <i class="bi bi-arrow-right"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="store-footer" id="about">
+
+  <div class="container">
+
+    <div class="row g-5">
+
+      <div class="col-lg-4">
+
+        <a class="footer-logo">
+          VIBE<span>STORE</span>
+        </a>
+
+        <p>
+          Discover products that match your lifestyle.
+          Quality, comfort and style — all in one place.
+        </p>
+
+        <div class="social-links">
+
+          <a>
+            <i class="bi bi-instagram"></i>
+          </a>
+
+          <a>
+            <i class="bi bi-facebook"></i>
+          </a>
+
+          <a>
+            <i class="bi bi-twitter-x"></i>
+          </a>
+
+          <a>
+            <i class="bi bi-youtube"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-6 col-lg-2">
+
+        <h6>Shop</h6>
+
+        <a>All Products</a>
+        <a>New Arrivals</a>
+        <a>Best Sellers</a>
+        <a>Deals</a>
+
+      </div>
+
+
+      <div class="col-6 col-lg-2">
+
+        <h6>Help</h6>
+
+        <a>Contact Us</a>
+        <a>Shipping</a>
+        <a>Returns</a>
+        <a>FAQ</a>
+
+      </div>
+
+
+      <div class="col-6 col-lg-2">
+
+        <h6>Company</h6>
+
+        <a>About Us</a>
+        <a>Careers</a>
+        <a>Privacy</a>
+        <a>Terms</a>
+
+      </div>
+
+
+      <div class="col-6 col-lg-2">
+
+        <h6>Account</h6>
+
+        <a routerLink="/login">
+          Login
+        </a>
+
+        <a>
+          My Orders
+        </a>
+
+        <a>
+          Wishlist
+        </a>
+
+        <a>
+          Cart
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 VibeStore. All rights reserved.
+      </span>
+
+      <span>
+        Made with <i class="bi bi-heart-fill"></i> for modern shoppers.
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>

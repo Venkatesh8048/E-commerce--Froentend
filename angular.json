@@ -31,8 +31,9 @@
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
-
-            
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
             "allowedCommonJsDependencies": [
               "html2canvas",
               "sweetalert2",
@@ -64,8 +65,6 @@
             }
           },
           "defaultConfiguration": "production",
-         
-          
         },
         "serve": {
           "builder": "@angular/build:dev-server",

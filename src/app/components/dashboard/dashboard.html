@@ -211,7 +211,7 @@
 
                     <h6>Total Revenue</h6>
 
-                    <h3>₹2,45,000</h3>
+                    <h3>₹{{ totalRevenue | number:'1.0-2' }}</h3>
 
                     <small>
                         <i class="fa fa-arrow-up"></i>
@@ -303,7 +303,7 @@
 
                     <h6>My Cart</h6>
 
-                    <h3>12</h3>
+                    <h3>{{totalcart}}</h3>
 
                     <small>
                         Products added in cart
@@ -323,7 +323,7 @@
 
                     <h6>My Orders</h6>
 
-                    <h3>{{totalOrders}}</h3>
+                    <h3>{{totalOrdersbyId}}</h3>
 
                     <small>
                         Track all your orders
@@ -333,45 +333,7 @@
 
             </div>
 
-            <div class="col-md-6 col-xl-3">
 
-                <div class="card-box bg1">
-
-                    <div class="card-icon">
-                        <i class="fa fa-heart"></i>
-                    </div>
-
-                    <h6>Wishlist</h6>
-
-                    <h3>8</h3>
-
-                    <small>
-                        Saved favorite products
-                    </small>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-6 col-xl-3">
-
-                <div class="card-box bg3">
-
-                    <div class="card-icon">
-                        <i class="fa fa-star"></i>
-                    </div>
-
-                    <h6>Reviews</h6>
-
-                    <h3>24</h3>
-
-                    <small>
-                        Product reviews added
-                    </small>
-
-                </div>
-
-            </div>
 
         </div>
 
@@ -484,7 +446,7 @@
              RECENT ORDERS
         ========================== -->
 
-        <div class="section-card mt-4" *ngIf="isAdmin()">
+        <!-- <div class="section-card mt-4" *ngIf="isAdmin()">
 
             <div class="d-flex justify-content-between align-items-center mb-4">
 
@@ -653,7 +615,60 @@
 
             </div>
 
+        </div> -->
+
+
+        <div class="orders-container">
+            <h5 class="fw-bold mb-1">
+                Recent Orders
+            </h5>
+
+            <div class="order-card" *ngFor="let order of recentOrders">
+
+                <div class="image-section">
+                    <img [src]="getImageUrl(order.product.image)" alt="Product">
+                </div>
+
+                <div class="details-section">
+
+                    <div class="header">
+                        <h4>{{ order.product.name }}</h4>
+
+                        <span class="status-badge" [ngClass]="{
+            'success': order.status === 'Delivered',
+            'warning': order.status === 'Pending',
+            'secondary': order.status === 'Shipped',
+            'primary': order.status === 'Placed',
+            'danger': order.status === 'CANCELED'
+          }">
+                            {{ order.status }}
+                        </span>
+                    </div>
+
+                    <div class="price">
+                        ₹{{ order.product.price }}
+                    </div>
+
+                    <div class="info-grid">
+
+                        <div class="info-item">
+                            <i class="bi bi-box-seam-fill"></i>
+                            <span>Qty : {{ order.quantity }}</span>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="bi bi-calendar-event-fill"></i>
+                            <span>{{ order.orderDate | date:'dd MMM yyyy' }}</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
 
     </div>
 

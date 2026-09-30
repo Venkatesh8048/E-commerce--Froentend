@@ -60,7 +60,7 @@ export class Cart {
 
     const userId = Number(localStorage.getItem("userId"));
     if (!userId) return;
-    this.cartService.getCartByUserId().subscribe({
+    this.cartService.getCartByUserId(userId).subscribe({
       next: (res: any[]) => {
         const filterUser = res.filter(u => u.user.id === userId);
         setTimeout(() => {
